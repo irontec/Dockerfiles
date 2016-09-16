@@ -20,7 +20,7 @@ echo  "#/bin/sh" > "${HARDENING_CHECK_PLACEHOLDER}" && \
 chmod +x "${HARDENING_CHECK_PLACEHOLDER}" && \
 export PATH="${PATH}:${HARDENING_CHECK_PLACEHOLDER_DIR}" && \
 git checkout "${TINI_VERSION}" && \
-export SOURCE_DIR="${TINI_BUILD}" && \  
+export SOURCE_DIR="${TINI_BUILD}" && \
 export BUILD_DIR="${TINI_BUILD}" && \
 "${TINI_BUILD}/ci/run_build.sh" && \
     echo "Installing Tini" && \
@@ -40,4 +40,5 @@ rm -rf /var/lib/apt/lists/* && \
     /usr/local/bin/tini -- ls && \
     /usr/local/bin/tini-static -- ls && \
     echo "Done"
+    
 ENTRYPOINT ["/usr/bin/tini", "--"]
