@@ -43,5 +43,5 @@ rm -rf /var/lib/apt/lists/* && \
     echo "Done"
     
 ENTRYPOINT ["/usr/bin/tini", "--"]
-CMD ["apache2-foreground"]
+CMD ["httpd-foreground"]
 
