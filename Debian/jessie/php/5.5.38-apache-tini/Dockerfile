@@ -27,11 +27,6 @@ export BUILD_DIR="${TINI_BUILD}" && \
 "${TINI_BUILD}/ci/run_build.sh" && \
     echo "Installing Tini" && \
     dpkg -i "${TINI_BUILD}/tini_${TINI_REAL_VERSION}.deb"  && \
-    echo "Cleaning up" && \
-    cd / && \
-rm -rf "${TINI_BUILD}" && \
-    apt-get purge --yes ${TINI_DEPS} && \
-apt-get autoremove --yes && \
 rm -rf /var/lib/apt/lists/* && \
     echo "Symlinkng to /usr/local/bin" && \
     ln -s /usr/bin/tini        /usr/local/bin/tini && \
@@ -44,3 +39,5 @@ rm -rf /var/lib/apt/lists/* && \
     echo "Done"
 
 ENTRYPOINT ["/usr/bin/tini", "--"]
+
+CMD ["apache2-foreground"]
